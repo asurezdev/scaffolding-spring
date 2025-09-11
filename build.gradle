@@ -43,6 +43,8 @@ dependencies {
 	//resilience
 	implementation "io.github.resilience4j:resilience4j-spring-boot3:${resilience4jVersion}"
 	implementation "org.springframework.boot:spring-boot-starter-actuator"
+	//security
+	implementation "org.springframework.boot:spring-boot-starter-security"
 	//lombok
 	annotationProcessor 'org.projectlombok:lombok'
 	compileOnly 'org.projectlombok:lombok'

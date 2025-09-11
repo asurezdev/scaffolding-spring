@@ -5,7 +5,7 @@ import co.com.asuarezr.products_msvc.products.application.command.UpdateProductC
 import co.com.asuarezr.products_msvc.products.application.dtos.ResponseProductDto;
 import co.com.asuarezr.products_msvc.products.application.query.GetAllProductsQuery;
 import co.com.asuarezr.products_msvc.products.application.query.GetProductByIdQuery;
-import co.com.asuarezr.products_msvc.products.infrastructure.useCaseConfig.UseCaseMediator;
+import co.com.asuarezr.products_msvc.products.infrastructure.configurations.useCaseConfig.UseCaseMediator;
 import jakarta.validation.Valid;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;

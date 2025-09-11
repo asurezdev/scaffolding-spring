@@ -1,4 +1,4 @@
-package co.com.asuarezr.products_msvc.products.infrastructure.kafkaConfig;
+package co.com.asuarezr.products_msvc.products.infrastructure.configurations.kafkaConfig;
 
 import org.apache.kafka.clients.admin.NewTopic;
 import org.apache.kafka.common.TopicPartition;

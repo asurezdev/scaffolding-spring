@@ -2,12 +2,13 @@ package co.com.asuarezr.products_msvc.products.infrastructure.adapters.fakeSoreA
 
 
 import co.com.asuarezr.products_msvc.products.application.dtos.FakeApiDto;
+import co.com.asuarezr.products_msvc.products.infrastructure.configurations.httpClientConfig.FeignConfig;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@FeignClient(name = "fakeStoreApi", url = "https://fakestoreapi.com")
+@FeignClient(name = "fakeStoreApi", url = "https://fakestoreapi.com", configuration = FeignConfig.class)
 public interface FeignFakeStoreApi {
 
   @GetMapping("/products")

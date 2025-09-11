@@ -1,4 +1,4 @@
-package co.com.asuarezr.products_msvc.products.infrastructure.httpClientConfig;
+package co.com.asuarezr.products_msvc.products.infrastructure.configurations.httpClientConfig;
 
 import feign.codec.ErrorDecoder;
 import org.springframework.context.annotation.Bean;

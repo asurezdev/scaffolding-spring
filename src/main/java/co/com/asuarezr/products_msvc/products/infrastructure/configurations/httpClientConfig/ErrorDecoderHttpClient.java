@@ -1,4 +1,4 @@
-package co.com.asuarezr.products_msvc.products.infrastructure.httpClientConfig;
+package co.com.asuarezr.products_msvc.products.infrastructure.configurations.httpClientConfig;
 
 import co.com.asuarezr.products_msvc.products.domain.customExceptions.BadRequestException;
 import co.com.asuarezr.products_msvc.products.domain.customExceptions.ForbiddenException;

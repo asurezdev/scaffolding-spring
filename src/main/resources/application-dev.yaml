@@ -3,6 +3,7 @@ server:
 spring:
   config:
     import:
+      - "classpath:dev/cors.yaml"
       - "classpath:dev/db.yaml"
       - "classpath:dev/kafka.yaml"
       - "classpath:dev/resilience4j.yaml"

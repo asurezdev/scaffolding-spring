@@ -1,4 +1,4 @@
-package co.com.asuarezr.products_msvc.products.infrastructure.useCaseConfig;
+package co.com.asuarezr.products_msvc.products.infrastructure.configurations.useCaseConfig;
 
 
 import co.com.asuarezr.products_msvc.products.domain.annotations.ApplicationComponent;

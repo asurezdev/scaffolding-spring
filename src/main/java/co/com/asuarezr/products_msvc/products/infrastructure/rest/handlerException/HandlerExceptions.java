@@ -4,10 +4,16 @@ import co.com.asuarezr.products_msvc.products.domain.customExceptions.*;
 import co.com.asuarezr.products_msvc.products.domain.errorMessage.ErrorMessage;
 import co.com.asuarezr.products_msvc.products.domain.errorMessage.FullErrorMessage;
 import co.com.asuarezr.products_msvc.products.domain.errorMessage.ShortErrorMessage;
+import feign.RetryableException;
 import jakarta.validation.ConstraintViolationException;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.converter.HttpMessageNotReadableException;
+import org.springframework.security.authentication.BadCredentialsException;
+import org.springframework.security.authentication.DisabledException;
+import org.springframework.security.authentication.InternalAuthenticationServiceException;
+import org.springframework.security.authentication.LockedException;
+import org.springframework.security.authorization.AuthorizationDeniedException;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -62,7 +68,6 @@ public class HandlerExceptions {
     return new FullErrorMessage( List.of(ex.getClass().getSimpleName()), "Bad Request",HttpStatus.BAD_REQUEST.value());
   }
 
-  /*
   @ResponseStatus(HttpStatus.FORBIDDEN)
   @ExceptionHandler(
           AuthorizationDeniedException.class
@@ -72,8 +77,6 @@ public class HandlerExceptions {
     if (ex.getMessage() == null) return new ShortErrorMessage("Forbidden", HttpStatus.FORBIDDEN.value());
     return new FullErrorMessage(List.of(ex.getMessage()), "Forbidden", HttpStatus.FORBIDDEN.value());
   }
-
-   */
 
   // custom exceptions
   //------------------
@@ -96,6 +99,10 @@ public class HandlerExceptions {
   @ResponseStatus(HttpStatus.UNAUTHORIZED)
   @ExceptionHandler({
           UnauthorizedException.class,
+          BadCredentialsException.class,
+          DisabledException.class,
+          LockedException.class,
+          InternalAuthenticationServiceException.class
   })
   @ResponseBody
   public ErrorMessage onUnauthorizedException(Exception ex) {
@@ -122,7 +129,12 @@ public class HandlerExceptions {
   }
 
   //error de feign client
-
+  @ResponseStatus(HttpStatus.SERVICE_UNAVAILABLE)
+  @ExceptionHandler(RetryableException.class)
+  @ResponseBody
+  public ErrorMessage onRetryableException(RetryableException ex) {
+   return new ShortErrorMessage(ex.request().url() + " not available", HttpStatus.SERVICE_UNAVAILABLE.value());
+  }
 
   //Internal Server Error
   @ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
