@@ -2,6 +2,9 @@ server:
   servlet:
     context-path: /api/v1
 spring:
+  threads:
+    virtual:
+      enabled: true
   application:
     name: products-msvc
   profiles:
