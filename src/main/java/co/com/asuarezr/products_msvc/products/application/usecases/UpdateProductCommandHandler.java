@@ -7,7 +7,7 @@ import co.com.asuarezr.products_msvc.products.application.mappers.ProductMapper;
 import co.com.asuarezr.products_msvc.products.domain.annotations.ApplicationComponent;
 import co.com.asuarezr.products_msvc.products.domain.customExceptions.NotFoundException;
 import co.com.asuarezr.products_msvc.products.domain.models.Product;
-import co.com.asuarezr.products_msvc.products.domain.repository.ProductRepository;
+import co.com.asuarezr.products_msvc.products.domain.repositories.ProductRepository;
 
 @ApplicationComponent
 public class UpdateProductCommandHandler implements CommandHandler<UpdateProductCommand> {

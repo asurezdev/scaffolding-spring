@@ -6,7 +6,7 @@ import co.com.asuarezr.products_msvc.products.application.mappers.ProductMapper;
 import co.com.asuarezr.products_msvc.products.application.ports.MessageBroker;
 import co.com.asuarezr.products_msvc.products.domain.annotations.ApplicationComponent;
 import co.com.asuarezr.products_msvc.products.domain.models.Product;
-import co.com.asuarezr.products_msvc.products.domain.repository.ProductRepository;
+import co.com.asuarezr.products_msvc.products.domain.repositories.ProductRepository;
 
 
 @ApplicationComponent

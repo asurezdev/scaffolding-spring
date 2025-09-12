@@ -9,7 +9,7 @@ import co.com.asuarezr.products_msvc.products.application.ports.FakeStoreApi;
 import co.com.asuarezr.products_msvc.products.application.query.GetProductByIdQuery;
 import co.com.asuarezr.products_msvc.products.domain.annotations.ApplicationComponent;
 import co.com.asuarezr.products_msvc.products.domain.customExceptions.NotFoundException;
-import co.com.asuarezr.products_msvc.products.domain.repository.ProductRepository;
+import co.com.asuarezr.products_msvc.products.domain.repositories.ProductRepository;
 
 
 @ApplicationComponent

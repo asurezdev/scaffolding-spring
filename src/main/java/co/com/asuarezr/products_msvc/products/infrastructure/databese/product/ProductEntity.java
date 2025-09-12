@@ -1,4 +1,4 @@
-package co.com.asuarezr.products_msvc.products.infrastructure.databese;
+package co.com.asuarezr.products_msvc.products.infrastructure.databese.product;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;

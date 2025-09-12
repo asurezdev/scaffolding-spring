@@ -1,8 +1,8 @@
-package co.com.asuarezr.products_msvc.products.infrastructure.databese;
+package co.com.asuarezr.products_msvc.products.infrastructure.databese.product;
 
 import co.com.asuarezr.products_msvc.products.application.dtos.ProductDto;
 import co.com.asuarezr.products_msvc.products.domain.models.Product;
-import co.com.asuarezr.products_msvc.products.domain.repository.ProductRepository;
+import co.com.asuarezr.products_msvc.products.domain.repositories.ProductRepository;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;

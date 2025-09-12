@@ -1,4 +1,4 @@
-package co.com.asuarezr.products_msvc.products.domain.repository;
+package co.com.asuarezr.products_msvc.products.domain.repositories;
 
 import co.com.asuarezr.products_msvc.products.application.dtos.ProductDto;
 import co.com.asuarezr.products_msvc.products.domain.models.Product;

@@ -1,7 +1,6 @@
-package co.com.asuarezr.products_msvc.products.infrastructure.databese;
+package co.com.asuarezr.products_msvc.products.infrastructure.databese.product;
 
 import co.com.asuarezr.products_msvc.products.application.dtos.ProductDto;
-import co.com.asuarezr.products_msvc.products.domain.models.Product;
 import org.springframework.data.repository.CrudRepository;
 
 import java.util.List;
