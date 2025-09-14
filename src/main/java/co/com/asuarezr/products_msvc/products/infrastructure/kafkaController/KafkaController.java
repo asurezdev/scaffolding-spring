@@ -9,9 +9,10 @@ import org.springframework.stereotype.Component;
 public class KafkaController {
 
   @KafkaListener(topics = "add-product")
-  void testListener(CreateProductCommand msg, Acknowledgment ack){
+  void addProductListener(CreateProductCommand msg, Acknowledgment ack){
     System.out.println("mensaje recibido Kafka controller");
     System.out.println(msg);
     ack.acknowledge();// Confirmar procesamiento exitoso
   }
+
 }

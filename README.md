@@ -88,11 +88,57 @@ ya que este último también constituye un **detalle de implementación**.
 
    !["adapter-http"](/assets/adapterHttp.png)
 
-## Creando un Cliente de Kafka.
-1. **Configurando parametros del cliente Kafka.**
+## Creando un Cliente de Kafka
 
-2. **definindo topics**
+1. **Configurando parámetros del cliente Kafka**  
+   En el paquete `resources` se encuentran los directorios **dev** y **pdn**, según el ambiente que se desee configurar.  
+   El archivo **kafka.yaml** contiene todos los parámetros de configuración requeridos.  
+   Allí se pueden establecer la URL del servidor de Kafka y las credenciales de conexión.
 
-3. **publicando mensajes via kafka**
+   !["kafka-yaml"](/assets/kafka-yaml.png)
 
-4. **generando un subscriber a topics**
+---
+
+2. **Definiendo topics**  
+   Dentro del paquete `infrastructure` se encuentra el subpaquete `configurations`, donde se ubican todas las clases que parametrizan el servidor y los módulos utilizados por este.
+
+   En la clase **KafkaConfig** se registran como *Beans* los *topics* que deben ser publicados por el servidor.
+
+   !["kafka-topics"](/assets/topic.png)
+
+   - El primer parámetro corresponde al **nombre del topic**.
+   - El segundo parámetro indica la **cantidad de particiones**.
+   - El tercer parámetro corresponde a la **cantidad de réplicas**.
+
+---
+
+3. **Publicando mensajes vía Kafka**  
+   El repositorio ya incluye un puerto y un adaptador para interactuar con un *message broker*.  
+   En los casos de uso se puede inyectar un objeto de tipo **MessageBroker**.
+
+   Este objeto cuenta con la implementación del método **send()**, al cual se le debe pasar como parámetros:
+   - el **nombre del topic**, seguido del
+   - **mensaje que se desea publicar**.
+
+---
+
+4. **Generando un subscriber a topics**  
+   En el paquete `infrastructure` se encuentra la clase **KafkaController**,  
+   en la cual se pueden definir métodos anotados con el decorador **@KafkaListener**  
+   para suscribirse a los *topics* de interés para el microservicio.
+
+   !["kafka-listener"](/assets/kafka-listener.png)
+
+### Consideraciones para la Reactividad
+
+Todo este repositorio funciona utilizando un servidor **Tomcat** configurado para implementar **hilos virtuales**.
+
+Es posible **paralelizar tareas asíncronas** utilizando la **concurrencia estructurada**, una característica disponible en **Java desde la versión 21**.
+
+Esta técnica constituye una alternativa para implementar reactividad escribiendo **código síncrono**, lo que garantiza que el código sea más **fácil de leer y depurar**.
+
+<a href="https://docs.oracle.com/en/java/javase/21/core/structured-concurrency.html#GUID-AA992944-AABA-4CBC-8039-DE5E17DE86DB"> 
+ saber más
+</a>
+
+
