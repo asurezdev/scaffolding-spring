@@ -129,7 +129,7 @@ ya que este último también constituye un **detalle de implementación**.
 
    !["kafka-listener"](/assets/kafka-listener.png)
 
-### Consideraciones para la Reactividad
+## Consideraciones para la Reactividad
 
 Todo este repositorio funciona utilizando un servidor **Tomcat** configurado para implementar **hilos virtuales**.
 
@@ -141,4 +141,25 @@ Esta técnica constituye una alternativa para implementar reactividad escribiend
  saber más
 </a>
 
+# Infraestructura para Desarrollo Local
+
+El repositorio incluye un archivo **docker-compose** que, al levantarse mediante el siguiente comando:
+
+```bash
+docker compose up -d
+```
+
+creará los siguientes componentes:
+
+- Una **base de datos PostgreSQL** (versión 16) expuesta en el puerto **5432**.
+- Un **clúster de Kafka** expuesto en el puerto **9092**.
+- Una interfaz gráfica **Kafka UI**, accesible en [http://localhost:8080/](http://localhost:8080/), útil para depurar los mensajes enviados por el microservicio.
+
+**Notas adicionales**
+
+- Asegúrate de tener **Docker** y **Docker Compose** instalados.
+- Si alguno de los puertos está en uso, modifica `docker-compose.yml` para evitar conflictos.
+- Para detener y eliminar contenedores, volúmenes y redes creadas:
+
+  docker compose down -v
 
